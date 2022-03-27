@@ -1,14 +1,20 @@
 package com.example.finalprojectnewtesting;
 
+import android.content.Context;
+
 import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.io.FileWriter;   // Import the FileWriter class;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class SignIn {
-    public static void main(String[] args) {
+    public void generateFile() {
         try {
             String path = new File("").getAbsolutePath();
-            System.out.println(path + "app/src/main/java/SignIn.txt");
-            File myObj = new File(path + "app/src/main/java/com/example/finalprojectnewtesting/SignIn.txt");
+            File myObj = new File(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt");
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
@@ -18,16 +24,50 @@ public class SignIn {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
 
+    public void writeToFile(String message) {
+        String path = new File("").getAbsolutePath();
         try {
-            FileWriter myWriter = new FileWriter("SignIn.txt");
-            myWriter.write("We will change this to read the textbox in the andriod studio not wokring here");
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt",
+                    Context.MODE_PRIVATE));
+            outputStreamWriter.write(message);
+            outputStreamWriter.close();
+
+        } catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public boolean readFromFile(String username, String password) {
+        Scanner input;
+        boolean flag = false;
+        try {
+            String path = new File("").getAbsolutePath();
+            input = new Scanner(new File(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt"));
+            input.useDelimiter(",");
+
+            ArrayList<User> users = new ArrayList<>();
+            int index = 0;
+
+            while (input.hasNext()) {
+                users.add(index, new User(input.next().replaceAll("\n", "").replaceAll("\r", ""),
+                        input.next(), input.next()));
+            }
+            for (User user: users) {
+                if (user.getUsername().equals(username) && (user.getPassword().equals(password))) {
+                    flag = true;
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("File not Found :( (all other fields)");
+        }
+        return flag;
+
     }
 }
 
