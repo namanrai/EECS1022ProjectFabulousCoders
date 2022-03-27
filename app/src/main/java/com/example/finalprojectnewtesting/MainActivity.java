@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
     public int guessesUsed = 0;
 
@@ -17,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void buttonClicked(View v) {
-            EditText triesBox  =  (EditText) findViewById(R.id.triesbox);
+            EditText triesBox  =  findViewById(R.id.triesbox);
             String tb = triesBox.getText().toString();
 
 
             //Scanner input =  new Scanner(System.in);
-            EditText rangebox  =  (EditText) findViewById(R.id.rangebox);
+            EditText rangebox  =  findViewById(R.id.rangebox);
             int rb = Integer.parseInt(rangebox.getText().toString());
 
 
@@ -53,4 +57,37 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.answer2)).setText("out of guesses");
             }
         }
-    }
+
+        public void loginButton(View v) {
+            //EditText usernameEntry = findViewById(R.id.usernameEntry);
+            //String userEntry = usernameEntry.getText().toString();
+
+            //EditText passwordEntry = findViewById(R.id.passwordEntry);
+            //String passEntry = passwordEntry.getText().toString();
+
+            try {
+                FileWriter myWriter = new FileWriter("SignIn.txt");
+                myWriter.write("username" + "," + "password" + "\n");
+                myWriter.close();
+                System.out.println("Successfully wrote to the file.");
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+
+        }
+
+        public void writeToFile(String username, String password) {
+
+            try {
+                FileWriter myWriter = new FileWriter("SignIn.txt");
+                myWriter.write(username + "," + password + "\n");
+                myWriter.close();
+                System.out.println("Successfully wrote to the file.");
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+
+        }
