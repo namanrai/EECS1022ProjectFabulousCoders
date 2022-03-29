@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Final Project New Testing</string>
+    <string name="s1">Login or Sign up</string>
+    <string name="s2">LOGIN</string>
+    <string name="s3">SIGN UP</string>
+    <string name="s4">Sign Up</string>
+    <string name="s5">COVID-19 Dashboard</string>
+    <string name="s6">Affected</string>
+    <string name="affectedData" />
+    <string name="s7">Death</string>
+    <string name="s8">Recovered</string>
+    <string name="s9">Active</string>
+    <string name="deathData" />
+    <string name="recoveredData" />
+    <string name="activeData" />
 </resources>
