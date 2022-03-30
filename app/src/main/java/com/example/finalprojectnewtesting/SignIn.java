@@ -26,7 +26,7 @@ public class SignIn {
         }
     }
 
-    public void writeToFile(String message) {
+   /* public void writeToFile(String message) {
         String path = new File("").getAbsolutePath();
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt",
@@ -40,7 +40,7 @@ public class SignIn {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public boolean readFromFile(String username, String password) {
         Scanner input;

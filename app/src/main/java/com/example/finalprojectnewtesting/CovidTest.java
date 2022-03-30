@@ -1,12 +1,14 @@
 package com.example.finalprojectnewtesting;
 
+import android.widget.TextView;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 public class CovidTest {
-
-    public static void main(String[] args) {
+    public String[] covid() {
+        String[] covidStuff = new String[4];
         try {
             URL url = new URL("https://api.opencovid.ca/");
 
@@ -23,14 +25,14 @@ public class CovidTest {
                 covid.setRecovered(wholeValues[9].split(":")[1].split("\\.")[0]);
                 covid.setActive(wholeValues[0].split(":")[2]);
 
-                System.out.println("Affected: " + covid.getAffected());
-                System.out.println("Death: " + covid.getDeath());
-                System.out.println("Recovered: " + covid.getRecovered());
-                System.out.println("Active: " + covid.getActive());
+                covidStuff[0] = covid.getAffected();
+                covidStuff[1] = covid.getDeath();
+                covidStuff[2]  = covid.getRecovered();
+                covidStuff[3]  = covid.getActive();
             }
-
         } catch (Exception e) {
             System.out.println(e);
         }
+        return covidStuff;
     }
 }
