@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="testButton"
     tools:context=".loginview">
 
     <ImageView
@@ -15,8 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199"
-        app:srcCompat="@drawable/main_logo" />
+        app:layout_constraintVertical_bias="0.199" />
 
     <TextView
         android:id="@+id/textView4"
@@ -97,6 +97,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.050000012" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testButton"
+        android:text="Button"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="672dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
