@@ -17,13 +17,13 @@
             android:name=".Covidview"
             android:exported="false" />
         <activity
-            android:name=".signupview"
+            android:name=".SignupView"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".loginview"
+            android:name=".LoginView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

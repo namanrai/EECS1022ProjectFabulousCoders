@@ -51,18 +51,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void loginButton(View v) {
-        //EditText usernameEntry = findViewById(R.id.usernameEntry);
-        //String userEntry = usernameEntry.getText().toString();
-
-        //EditText passwordEntry = findViewById(R.id.passwordEntry);
-        //String passEntry = passwordEntry.getText().toString();
-
-        SignIn sign = new SignIn();
-
-        //sign.writeToFile("username", "password");
-    }
-
 
 }
 

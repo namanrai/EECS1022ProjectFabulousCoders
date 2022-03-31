@@ -1,22 +1,25 @@
 package com.example.finalprojectnewtesting;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Utilities {
 
-    public int randNumGen(int range) {
-        return (int) (Math.random()*range);
+    public void saveToSharedPrefString(String value, String name, Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(name, value);
+        editor.commit();
     }
-    public int getRange(){
-        Scanner input =  new Scanner(System.in);
-        System.out.println("Enter the range of numbers to guess between");
-        return input.nextInt();
-    }
-    public int getTries(){
-        Scanner input =  new Scanner(System.in);
-        System.out.println("Enter the number of tries you want");
-        return input.nextInt();
+    public void saveToSharedPrefStringSet(Set<String> value, String name, Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putStringSet(name, value);
+        editor.commit();
     }
 
 }

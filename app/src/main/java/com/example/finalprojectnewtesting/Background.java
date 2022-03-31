@@ -19,42 +19,37 @@ public class Background extends AsyncTask<Integer,Void,String>{
 
     @Override
     protected String doInBackground(Integer... params) {
+        //Instantiate Covid Object
         CovidStats covid = new CovidStats();
+        //Instantiate Utility Class
+        Utilities util = new Utilities();
         try {
+            //Get the information from the API
             URL url = new URL("https://api.opencovid.ca/");
-
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-
             String line;
+
+            //Splitting the data from the API into strings
             while ((line = in.readLine()) != null) {
                 String[] wholeValues = line.split(",");
-
 
                 covid.setAffected(wholeValues[5].split(":")[1]);
                 covid.setDeath(wholeValues[7].split(":")[1].split("\\.")[0]);
                 covid.setRecovered(wholeValues[9].split(":")[1].split("\\.")[0]);
                 covid.setActive(wholeValues[0].split(":")[2]);
 
-                //Saving your strings
+                //Saving the strings into SharedPreferences using utility methods
                 SharedPreferences prefs = context.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("affected", covid.getAffected());
-                System.out.println(covid.getAffected());
-                editor.putString("deaths", covid.getDeath());
-                editor.putString("recovered", covid.getRecovered());
-                editor.putString("active", covid.getActive());
+                util.saveToSharedPrefString(covid.getAffected(),"affected",context);
+                util.saveToSharedPrefString(covid.getDeath(),"deaths",context);
+                util.saveToSharedPrefString(covid.getRecovered(),"recovered",context);
+                util.saveToSharedPrefString(covid.getActive(),"active",context);
                 editor.commit();
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
-    }
-
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
     }
 }
