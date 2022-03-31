@@ -26,48 +26,37 @@ public class SignIn {
         }
     }
 
-   /* public void writeToFile(String message) {
+    public static void main(String[] args) {
         String path = new File("").getAbsolutePath();
-        try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt",
-                    Context.MODE_PRIVATE));
-            outputStreamWriter.write(message);
-            outputStreamWriter.close();
+        System.out.println(path);
+    }
 
-        } catch(FileNotFoundException e)
-        {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
-    public boolean readFromFile(String username, String password) {
+/*    public static String readFromFile(String username, String password) {
         Scanner input;
         boolean flag = false;
+        ArrayList<User> users = new ArrayList<>();
+        String path = new File("").getAbsolutePath();
         try {
-            String path = new File("").getAbsolutePath();
-            input = new Scanner(new File(path + "./app/src/main/java/com/example/finalprojectnewtesting/userdata.txt"));
+            path = new File("").getAbsolutePath();
+            System.out.println(path);
+            input = new Scanner(new File(path + "/app/src/main/java/com/example/finalprojectnewtesting/covid.txt"));
             input.useDelimiter(",");
 
-            ArrayList<User> users = new ArrayList<>();
             int index = 0;
 
             while (input.hasNext()) {
                 users.add(index, new User(input.next().replaceAll("\n", "").replaceAll("\r", ""),
                         input.next(), input.next()));
             }
-            for (User user: users) {
-                if (user.getUsername().equals(username) && (user.getPassword().equals(password))) {
-                    flag = true;
-                }
-            }
+            System.out.println(users.toString());
         }
         catch (FileNotFoundException e) {
             System.out.println("File not Found :( (all other fields)");
         }
-        return flag;
+        return users.toString();
+    }*/
 
-    }
+
 }
 

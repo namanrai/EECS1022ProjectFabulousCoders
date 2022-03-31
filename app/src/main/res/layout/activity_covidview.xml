@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".covidview">
+    tools:context=".Covidview">
 
     <TextView
         android:id="@+id/textView5"
@@ -122,7 +122,6 @@
         android:id="@+id/deathCases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/deathData"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
@@ -165,6 +164,18 @@
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/textView10"
         app:layout_constraintVertical_bias="0.625" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:onClick="buttonPressed"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

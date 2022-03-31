@@ -1,20 +1,11 @@
 package com.example.finalprojectnewtesting;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -72,14 +63,6 @@ public class MainActivity extends AppCompatActivity {
         //sign.writeToFile("username", "password");
     }
 
-    public void CovidTest(View v) {
-        CovidTest stats = new CovidTest();
-        ArrayList<String> newStat = new ArrayList<String> (Arrays.asList(stats.covid()));
-        ((TextView) findViewById(R.id.affectedCases)).setText(newStat.get(0));
-        ((TextView) findViewById(R.id.deathCases)).setText(newStat.get(1));
-        ((TextView) findViewById(R.id.recoveredCases)).setText(newStat.get(2));
-        ((TextView) findViewById(R.id.activeCases)).setText(newStat.get(3));
-    }
 
 }
 

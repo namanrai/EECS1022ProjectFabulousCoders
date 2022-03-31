@@ -74,6 +74,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="#1554F6"
+        android:onClick="loginButton"
         android:text="@string/s2"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,6 +107,15 @@
         android:text="Button"
         tools:layout_editor_absoluteX="164dp"
         tools:layout_editor_absoluteY="672dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testbutton"
+        android:text="Button"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="21dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
