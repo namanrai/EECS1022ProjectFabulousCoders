@@ -35,11 +35,13 @@ public class LoginView extends AppCompatActivity {
 
         //Setup SharedPreferences
         SharedPreferences prefs = getApplicationContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-
+        System.out.println(prefs.getAll());
         //Check if the email already exists inside database
         if (prefs.contains(emailText)){
             //Checks if the password matches the one in the database
-            if (String.valueOf(prefs.getStringSet(emailText, null).toArray()[0]).equals(passwordText)) {
+            if (String.valueOf(prefs.getStringSet(emailText, null).toArray()[1]).equals(passwordText) ||
+                    String.valueOf(prefs.getStringSet(emailText, null).toArray()[0]).equals(passwordText)
+            ) {
                 System.out.println("logged in");
                 //Changes Activity
                 Intent i = new Intent(this, Covidview.class);

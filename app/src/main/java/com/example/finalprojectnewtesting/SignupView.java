@@ -38,6 +38,7 @@ public class SignupView extends AppCompatActivity {
         SharedPreferences prefs = getApplicationContext().getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
+        System.out.println(prefs.getAll());
         //Checks if the email and password aren't empty and the email contains an @
         if ((!emailText.equals("") || !passwordText.equals("") || !nameText.equals("")) && emailText.contains("@")) {
             //Check if the email already exists in database
@@ -45,9 +46,7 @@ public class SignupView extends AppCompatActivity {
                 System.out.println("this email already exists");
             } else {
                 //Add all variables to set
-                set.add("");
                 set.add(nameText);
-                set.add(emailText);
                 set.add(passwordText);
 
                 //Use utility method to add set to the database
